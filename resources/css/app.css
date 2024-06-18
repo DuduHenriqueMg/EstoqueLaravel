@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.inputs-container{
+    @apply p-6 grid grid-cols-2 gap-4 text-center
+}
+
+.titulo{
+    @apply m-6 font-semibold text-xl
+}
+
+.inputs-campos{
+    @apply w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-center
+}
+
+.butn {
+    @apply border border-transparent rounded-md bg-gray-800 text-xs text-white 
+}
+
+.tabela{
+    @apply min-w-full bg-white
+}
+
+.tabela-titulos{
+    @apply bg-gray-800 text-white uppercase text-sm
+}
+
+.tabela-body{
+    @apply text-gray-700 text-center
+}
+
+
