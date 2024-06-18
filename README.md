@@ -10,4 +10,4 @@
 - Instalar os requisitos
 - Rodar esse código para baixar as dependencias: composer update
 - Rodar esse codigo para iniciar o node: npm i
-- Depois de tudo instalado configure o banco de dados e rode os seguintes códigos: php artisan migrate, php artisan serve, npm run dev 
+- Depois de tudo instalado configure o banco de dados e rode os seguintes códigos: php artisan migrate --seed ou php artisan migrate:refresh --seed, php artisan serve, npm run dev 
