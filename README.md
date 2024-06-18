@@ -7,7 +7,7 @@
   
 ##Para rodar o projeto:
 
-1 - Instalar os requisitos
-2 - Rodar esse código para baixar as deendencias: composer update
-3 - Rodar esse codigo ara iniciar o node: npm i
-4 - Depois de tudo instalado configure o banco de dados e rode os seguintes códigos: php artisan migrate, php artisan serve, npm run dev 
+- Instalar os requisitos
+- Rodar esse código para baixar as deendencias: composer update
+- Rodar esse codigo ara iniciar o node: npm i
+- Depois de tudo instalado configure o banco de dados e rode os seguintes códigos: php artisan migrate, php artisan serve, npm run dev 
