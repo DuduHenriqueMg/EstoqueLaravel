@@ -1,11 +1,11 @@
-##Requisitos do projeto
+## Requisitos do projeto
 
 - Laravel 10.10
 - Php 8.1
 - Composer
 - nodejs 5.2.0
   
-##Para rodar o projeto:
+## Para rodar o projeto:
 
 - Instalar os requisitos
 - Rodar esse código para baixar as dependencias: composer update
