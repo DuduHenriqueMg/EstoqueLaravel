@@ -14,7 +14,7 @@ class Produto extends Model implements Auditable
     protected $table = 'produtos';
 
     protected $fillable = [
-        'id', 'lote', 'valor', 'quantidade', 'descricao', 'categoria', 'fornecedor_id'
+        'id', 'nome', 'lote', 'valor', 'quantidade', 'descricao', 'categoria', 'fornecedor_id', 'venda_id'
     ];
 
 
@@ -22,8 +22,8 @@ class Produto extends Model implements Auditable
         return $this->belongsTo(Fornecedor::class);
     }
 
-    public function funcao() {
-        return $this->belongsTo(Funcao::class);
+    public function vendas() {
+        return $this->belongsToMany(Venda::class,  'venda_produto', 'produto_id', 'venda_id')>withPivot(['quantidade', 'valor']);
     }
     
 }

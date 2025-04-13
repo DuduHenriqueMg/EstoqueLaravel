@@ -17,12 +17,10 @@ class Venda extends Model implements Auditable
         'id', 'data', 'valor', 'funcionario_id', 'cliente_id'
     ];
 
-
-    
     public function getValorTotalAttribute()
     {
         return $this->produtos->sum(function ($produto) {
-            return $produto->pivot->quantidade * $produto->pivot->preco;
+            return $produto->pivot->quantidade * $produto->pivot->valor;
         });
     }
 
@@ -32,6 +30,10 @@ class Venda extends Model implements Auditable
 
     public function funcionario() {
         return $this->belongsTo(Funcionario::class);
+    }
+
+    public function produtos() {
+        return $this->belongsToMany(Produto::class, 'venda_produto', 'venda_id', 'produto_id')->withPivot(['quantidade', 'valor']);
     }
     
 }

@@ -25,7 +25,7 @@ class VendaController extends CrudController
         $this->route = 'Vendas';
         $this->atributes = ['vendas.id', 'data', 'valor', 'funcionario_id', 'cliente_id', 'funcionarios.nome', 'clientes.nome as nome_cliente'];
         $this->titulos = [ 'id', 'data', 'Valor', 'Funcionario', 'Cliente'];
-        $this->acao = ['detalhe', 'editar', 'apagar'];
+        $this->acao = ['detalhe', '', 'apagar'];
         $this->funcionarios = $funcionario->all();
         $this->clientes = $cliente->all();
               
@@ -34,16 +34,17 @@ class VendaController extends CrudController
     public function index(Request $request, $msg = null) : Response
     {   
         $msg = session()->get('mensagem');
-        $data = $this->class->paginate($this->atributes, 10);
+        $data = $this->class->paginateWithProdutos(10);
+        
        
         if ($request->hasAny(['busca'])) { 
-            $data = $this->class->paginate($this->atributes, 10, $request->collect())->withQueryString();    
+            $data = $this->class->paginateWithProdutos(10, $request->collect())->withQueryString();    
               
             if (!$data->items()) {
                 $msg = "Nada encontrado";
             }
         }
-
+        
         return Inertia::render($this->route.'/Index',
                                 [  
                                     'itens'=>$data,

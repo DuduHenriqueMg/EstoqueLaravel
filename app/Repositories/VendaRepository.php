@@ -17,6 +17,22 @@ class VendaRepository extends BaseRepository
         $this->modelClass = $aux;
     }
 
+    public function paginateWithProdutos($qtd, $filtros = null)
+    {
+        $query = $this->modelClass::with(['cliente', 'funcionario', 'produtos']);
+
+        if ($filtros && $filtros->has('busca')) {
+            $busca = $filtros['busca'];
+            $query->whereHas('funcionario', function ($q) use ($busca) {
+                $q->where('nome', 'LIKE', "%{$busca}%");
+            })->orWhereHas('cliente', function ($q) use ($busca) {
+                $q->where('nome', 'LIKE', "%{$busca}%");
+            });
+        }
+
+        return $query->orderBy('id')->paginate($qtd);
+    }
+
     public function paginate($data, $qtd, $filtros = null)
     {   
         

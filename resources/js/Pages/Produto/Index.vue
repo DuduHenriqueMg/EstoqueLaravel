@@ -150,6 +150,11 @@ const lista = computed(() => {
                         <div class="inputs-container">
                             <input type="hidden" id="id" v-model="form.item.id"/>
                             <div>
+                                <InputLabel for="nome" value="Nome" />
+                                <TextInput id="nome" type="text" class="inputs-campos" v-model="form.item.nome" required
+                                    autofocus autocomplete="nome" />    
+                            </div>   
+                            <div>
                                 <InputLabel for="lote" value="Lote" />
                                 <TextInput id="lote" type="text" class="inputs-campos" v-model="form.item.lote" required
                                     autofocus autocomplete="lote" />    

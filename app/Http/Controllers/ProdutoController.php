@@ -21,8 +21,8 @@ class ProdutoController extends CrudController
     {   
         $this->class = $class;
         $this->route = 'Produto';
-        $this->atributes = ['id', 'lote', 'valor', 'quantidade', 'descricao', 'categoria', 'fornecedor_id'];
-        $this->titulos = [ 'id', 'Lote', 'Valor', 'Quantidade', 'Descrição', 'Categoria', 'Fornecedor'];
+        $this->atributes = ['id', 'nome', 'lote', 'valor', 'quantidade', 'descricao', 'categoria', 'fornecedor_id'];
+        $this->titulos = [ 'id', 'Nome', 'Lote', 'Valor', 'Quantidade', 'Descrição', 'Categoria', 'Fornecedor'];
         $this->acao = ['detalhe', 'editar', 'apagar'];
         $this->fornecedores = $fornecedor->all();
         $this->categorias = $class->categorias();
